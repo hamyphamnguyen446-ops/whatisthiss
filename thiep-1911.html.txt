@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Men's Day 💗</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700;800&family=Pacifico&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    background: linear-gradient(135deg, #fff0f5, #fce4ec, #e8eafc);
+    min-height: 100vh;
+    overflow-x: hidden;
+    color: #76566d;
+}
+
+.background-hearts {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.heart {
+    position: absolute;
+    bottom: -40px;
+    animation: floatUp linear infinite;
+    opacity: .65;
+}
+
+@keyframes floatUp {
+    to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+}
+
+.card {
+    width: 100%;
+    max-width: 470px;
+    background: rgba(255,255,255,.8);
+    backdrop-filter: blur(12px);
+    border: 2px solid white;
+    border-radius: 30px;
+    padding: 35px 25px;
+    text-align: center;
+    box-shadow: 0 15px 45px rgba(220,140,175,.2);
+    animation: appear .9s ease;
+}
+
+@keyframes appear {
+    from {opacity: 0; transform: translateY(30px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+.tag {
+    display: inline-block;
+    background: #ffe1eb;
+    color: #dc81a5;
+    padding: 8px 17px;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+h1 {
+    font-family: 'Pacifico', cursive;
+    color: #e68bad;
+    font-size: 32px;
+    margin: 20px 0 10px;
+}
+
+.subtitle {
+    font-size: 14px;
+    line-height: 1.8;
+    color: #9d8193;
+}
+
+.envelope {
+    font-size: 90px;
+    margin: 25px 0;
+    cursor: pointer;
+    display: inline-block;
+    transition: .4s;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {transform: translateY(0) rotate(-3deg);}
+    50% {transform: translateY(-12px) rotate(3deg);}
+}
+
+.envelope:hover {
+    transform: scale(1.15);
+}
+
+button {
+    border: none;
+    background: linear-gradient(135deg, #f5a5c0, #dba6ed);
+    color: white;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 800;
+    padding: 14px 27px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 14px;
+    box-shadow: 0 7px 18px rgba(220,140,175,.3);
+    transition: .3s;
+}
+
+button:hover {
+    transform: translateY(-3px) scale(1.04);
+}
+
+#letter {
+    display: none;
+}
+
+.letter-content {
+    text-align: left;
+    line-height: 2;
+    font-size: 14px;
+    margin-top: 20px;
+    color: #806779;
+}
+
+.letter-content p {
+    margin-bottom: 14px;
+}
+
+.highlight {
+    color: #df82a7;
+    font-weight: 800;
+}
+
+.decor {
+    font-size: 25px;
+    margin: 15px 0;
+}
+
+.signature {
+    font-family: 'Pacifico', cursive;
+    color: #e58bac;
+    font-size: 22px;
+    text-align: right;
+    margin-top: 20px;
+}
+
+.reasons {
+    background: #fff0f6;
+    border-radius: 20px;
+    padding: 18px;
+    margin-top: 20px;
+    text-align: left;
+}
+
+.reasons h3 {
+    text-align: center;
+    color: #d980a5;
+    margin-bottom: 12px;
+    font-size: 16px;
+}
+
+.reason {
+    font-size: 13px;
+    margin: 10px 0;
+}
+
+.footer {
+    font-size: 11px;
+    color: #c29bad;
+    margin-top: 25px;
+}
+
+#surprise {
+    display: none;
+    margin-top: 20px;
+    background: #fff0f6;
+    padding: 20px;
+    border-radius: 20px;
+    line-height: 1.8;
+    font-size: 14px;
+}
+
+@media(max-width: 400px) {
+    h1 {font-size: 27px;}
+    .card {padding: 28px 19px;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="background-hearts" id="hearts"></div>
+
+<div class="container">
+
+    <!-- MÀN HÌNH PHONG THƯ -->
+    <div class="card" id="opening">
+
+        <div class="tag">SPECIAL DELIVERY 💌</div>
+
+        <h1>Hey, my favorite boy!</h1>
+
+        <p class="subtitle">
+            Hôm nay có một món quà nhỏ<br>
+            được gửi đến một người rất đặc biệt...
+        </p>
+
+        <div class="envelope" onclick="openLetter()">💌</div>
+
+        <p class="subtitle">
+            Người nhận: <b>My favorite person</b> ♡
+        </p>
+
+        <br>
+
+        <button onclick="openLetter()">Open your gift 💗</button>
+
+        <p class="footer">Made with love, just for you ♡</p>
+    </div>
+
+
+    <!-- NỘI DUNG THIỆP -->
+    <div class="card" id="letter">
+
+        <div class="tag">NOVEMBER 19TH ✨</div>
+
+        <h1>Happy Men's Day!</h1>
+
+        <div class="decor">🎀 🌷 🧸 💗</div>
+
+        <div class="letter-content">
+
+            <p>Dear my boy,</p>
+
+            <p>
+                Chúc mừng ngày 19/11 nha!
+                Chúc cậu bé của tớ luôn vui vẻ, mạnh khỏe,
+                bình an và gặp thật nhiều điều may mắn.
+            </p>
+
+            <p>
+                Mong rằng những điều cậu đang cố gắng
+                sẽ dần có được kết quả xứng đáng.
+                Mong cậu luôn đủ kiên trì để theo đuổi
+                những điều mình muốn và đủ tự tin
+                để tin vào chính bản thân mình.
+            </p>
+
+            <p>
+                Tớ cũng mong cậu sẽ luôn giữ được
+                sự nhiệt huyết, những nét đáng yêu
+                và cả cái tính đôi khi hơi đáng ghét
+                của cậu nữa. :))))
+            </p>
+
+            <p>
+                Cảm ơn cậu vì đã xuất hiện,
+                vì những cuộc trò chuyện,
+                những khoảnh khắc vui vẻ
+                và vì đã cùng tớ tạo nên
+                những kỷ niệm thật đẹp.
+            </p>
+
+            <p class="highlight">
+                Don't forget to take care of yourself.
+                You deserve all the good things in life!
+            </p>
+
+            <p>
+                Và cuối cùng, chúc cậu có một ngày 19/11
+                thật vui vẻ. Hy vọng món quà nhỏ này
+                có thể khiến cậu mỉm cười một chút. 💗
+            </p>
+
+        </div>
+
+        <div class="reasons">
+            <h3>♡ A little reminder ♡</h3>
+
+            <div class="reason">🌷 You are appreciated.</div>
+            <div class="reason">🧸 You are important.</div>
+            <div class="reason">⭐ Your efforts matter.</div>
+            <div class="reason">💗 You deserve happiness.</div>
+        </div>
+
+        <div class="signature">
+            With love, from me ♡
+        </div>
+
+        <br>
+
+        <button onclick="showSurprise()">One more thing... 🎁</button>
+
+        <div id="surprise">
+            <div style="font-size:40px">💗</div>
+            <b>Surpriseeee!</b>
+            <p>
+                Chúc mừng ngày của cậu nhé!
+                Nhớ rằng có một người luôn mong
+                cậu bình an, vui vẻ và hạnh phúc.
+            </p>
+            <p style="font-size:20px">I love you! ♡</p>
+        </div>
+
+        <p class="footer">
+            19.11.2026 — A little website, a lot of love.
+        </p>
+
+    </div>
+
+</div>
+
+<script>
+
+// Tạo trái tim bay
+const heartBox = document.getElementById("hearts");
+
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = ["💗", "💕", "♡", "🌸", "✨"][
+        Math.floor(Math.random() * 5)
+    ];
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (5 + Math.random() * 6) + "s";
+    heart.style.fontSize = (14 + Math.random() * 18) + "px";
+
+    heartBox.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 11000);
+}
+
+setInterval(createHeart, 500);
+
+
+// Mở thư
+function openLetter() {
+    document.getElementById("opening").style.display = "none";
+
+    const letter = document.getElementById("letter");
+    letter.style.display = "block";
+
+    letter.style.animation = "appear .9s ease";
+
+    window.scrollTo({top: 0, behavior: "smooth"});
+
+    for(let i = 0; i < 20; i++) {
+        setTimeout(createHeart, i * 100);
+    }
+}
+
+
+// Mở bất ngờ
+function showSurprise() {
+    const surprise = document.getElementById("surprise");
+
+    surprise.style.display = "block";
+    surprise.style.animation = "appear .7s ease";
+
+    for(let i = 0; i < 25; i++) {
+        setTimeout(createHeart, i * 80);
+    }
+}
+
+</script>
+
+</body>
+</html>
